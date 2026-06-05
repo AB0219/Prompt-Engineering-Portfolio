@@ -334,31 +334,25 @@ The three prompts demonstrate how increasing specificity improves the quality an
 
 ## 1.3 Role and Context Analysis
 
-### Prompt Without Role
 
-**Prompt:**  
-[Prompt]
+### Role and Context Usage
 
-**Output:**  
-[Output]
+Role assignment and context setting significantly improved the quality of the outputs in the Recursion Explanation and AquaFlow Marketing Tagline scenarios. By assigning roles such as **"expert teacher"** and **"creative copywriter,"** the model adopted an appropriate tone, style, and level of expertise for each task. Providing context, such as the target audience (a 10-year-old child) or the brand's focus on sustainability and active lifestyles, helped generate responses that were more relevant and tailored to the intended purpose. Overall, adding role and context produced outputs that were clearer, more engaging, and better aligned with the user's specific requirements.
 
-### Prompt With Role
-
-**Prompt:**  
-Act as a senior software engineer and explain cloud computing to a beginner.
-
-**Output:**  
-[Output]
 
 ### Analysis
 
-Discuss:
+ **Tone Differences**
+The initial prompts produced outputs with a generic tone because they lacked specific instructions. After refinement, the tone became more appropriate for each scenario: educational and friendly for the recursion explanation, professional and courteous for the job offer email, and creative and persuasive for the marketing taglines. Role assignment helped the model adopt the correct voice and style for each task.
 
-- Tone differences
-- Depth differences
-- Audience targeting
-- Quality improvements
+ **Depth Differences**
+Early prompts generated relatively simple responses with limited detail. By adding context, audience information, and specific requirements, the outputs became more comprehensive and focused. For example, the recursion explanation included a child-friendly analogy, and the job offer email incorporated gratitude, professionalism, and future interest in the company.
 
+ **Audience Targeting**
+The refined prompts clearly identified the intended audience, resulting in more tailored responses. The recursion explanation was adapted for a 10-year-old, making complex concepts easier to understand. Similarly, the AquaFlow taglines were targeted toward environmentally conscious and health-focused consumers, increasing their relevance and effectiveness.
+
+ **Quality Improvements**
+Overall, prompt refinement significantly improved output quality. The responses became more accurate, relevant, engaging, and aligned with the intended goals. Adding role assignments and contextual details reduced ambiguity and helped generate content that better matched real-world expectations and user requirements.
 (5–7 sentences)
 
 ---
@@ -369,40 +363,46 @@ Discuss:
 
 ### Prompt Used
 
-"Write a short story about a robot discovering emotions."
+Write a product description for a new, high-performance gaming laptop called the "Spectra X1". Highlight its powerful processor, advanced graphics card, and immersive display. Aim for about 100 words.
 
-### Temperature 0.2 Output
+**Temperature 0.2 (Low Creativity)**
 
-[Output]
+The Spectra X1 is a high-performance gaming laptop designed for demanding applications and modern games. It features a powerful multi-core processor that provides fast processing speeds and efficient multitasking. The advanced graphics card delivers smooth gameplay and supports high-quality visual rendering. Its high-resolution display offers clear images, accurate colors, and a fast refresh rate for improved viewing performance. The Spectra X1 combines processing power, graphics performance, and display quality in a reliable gaming system.
 
-### Temperature 0.7 Output
+**Temperature 0.7 (Balanced Creativity)**
 
-[Output]
+The Spectra X1 is a powerful gaming laptop built for performance and immersive entertainment. Equipped with a high-speed processor, it handles intensive gaming, streaming, and multitasking with ease. Its advanced graphics card delivers detailed visuals, realistic effects, and smooth frame rates for an enhanced gaming experience. The vibrant high-resolution display features a fast refresh rate, providing sharp images and fluid motion. Combining speed, power, and visual quality, the Spectra X1 is designed to meet the needs of modern gamers.
 
-### Temperature 1.0 Output
+**Temperature 1.0 (High Creativity)**
 
-[Output]
+Unleash the power of next-generation gaming with the Spectra X1. Driven by a blazing-fast processor, this gaming powerhouse keeps pace with your most demanding adventures and competitive battles. Its advanced graphics card transforms every scene into a breathtaking visual masterpiece, filled with rich detail and smooth performance. The immersive display draws you into vibrant worlds where every movement feels lifelike and every victory feels larger than life. Designed for gamers who seek excitement without limits, the Spectra X1 delivers a thrilling experience from the first click to the final boss battle.
+
+
+
+### Comparison Table
 
 ### Comparison Table
 
 | Parameter | Creativity | Consistency | Detail Level |
 |-----------|------------|-------------|--------------|
-| 0.2 | | | |
-| 0.7 | | | |
-| 1.0 | | | |
+| 0.2 | Low | Very High | Moderate |
+| 0.7 | Medium | High | High |
+| 1.0 | High | Moderate | High |
+
+### Discussion
+
+Temperature is a parameter that controls the randomness and creativity of an LLM's responses. Lower temperature values produce more predictable, consistent, and focused outputs, while higher temperature values generate more diverse, creative, and varied responses. Low temperature settings are ideal for tasks that require accuracy and reliability, such as technical documentation, code generation, data analysis, and product specifications. High temperature settings are better suited for creative tasks, including marketing copy, storytelling, brainstorming ideas, and content creation. In the Spectra X1 product description example, increasing the temperature resulted in more vivid language and imaginative descriptions. Businesses can use low temperatures for customer support responses, policy documents, and reports where consistency is important. High temperatures can be used for advertising campaigns, social media content, and innovation workshops where creativity is valuable. Selecting the appropriate temperature helps organizations balance accuracy and creativity based on the requirements of each task.
 
 ---
 
 ## 2.2 Analysis & Recommendations
 
-Discuss:
+Low temperature (0.2) is best when accuracy, consistency, and factual correctness are required. Two specific use cases are generating technical documentation and writing product specifications, where precise and reliable information is essential.
 
-- How temperature affects output
-- When to use low temperature
-- When to use high temperature
-- Business applications
+High temperature (1.0) is most useful when creativity and originality are important. Two specific use cases are creating marketing content and brainstorming story ideas, where diverse and engaging outputs are desired.
 
-(Minimum 6–8 sentences)
+For the Spectra X1 product description task, a temperature of 0.7 worked best because it provided a balance between creativity and consistency. The output remained clear and professional while still being engaging enough to attract potential customers. This temperature produced a well-rounded product description without becoming overly repetitive or excessively imaginative.
+
 
 ---
 
@@ -413,62 +413,126 @@ Discuss:
 ### Standard Prompt
 
 Solve:  
-"A company sells 120 units at $50 each. Production cost is $30 per unit. Calculate profit."
+If a train travels 120 km in 2 hours, then stops for 30 minutes, then travels another 90 km in 1.5 hours, what is its average speed for the entire journey? Just provide the final answer.
 
-### Standard Output
+### LLM Output
 
-[Output]
+52.5 km/h
 
 ### Chain-of-Thought Prompt
 
-Solve the problem step-by-step and explain your reasoning.
+If a train travels 120 km in 2 hours, then stops for 30 minutes, then travels another 90 km in 1.5 hours, what is its average speed for the entire journey? solve this step by step to ensure accuracy, and then provide the final answer.
 
 ### Chain-of-Thought Output
 
-[Output]
+Let's solve it step by step.
+
+### Step 1: Calculate the total distance traveled
+- First part: 120 km
+- Second part: 90 km
+
+**Total distance = 120 + 90 = 210 km**
+
+### Step 2: Calculate the total time taken
+- First travel time: 2 hours
+- Stop time: 30 minutes = 0.5 hours
+- Second travel time: 1.5 hours
+
+**Total time = 2 + 0.5 + 1.5 = 4 hours**
+
+### Step 3: Calculate the average speed
+Average Speed = Total Distance ÷ Total Time
+
+genui{"math_block_widget_always_prefetch_v2":{"content":"\\text{Average Speed} = \\frac{210}{4}"}}
+
+**Average Speed = 52.5 km/h**
+
+### Final Answer
+**52.5 km/h**
 
 ### Comparison
 
-Discuss:
+The outputs differed in the level of detail provided. The first response gave only the final answer (52.5 km/h), while the chain-of-thought version showed each calculation step, making it easier to verify the result and understand how it was obtained.
 
-- Differences in reasoning
-- Transparency
-- Educational value
+Chain-of-thought helps with complex reasoning because it breaks a problem into smaller, logical steps and processes each part systematically. This improves accuracy, makes the reasoning process more transparent, and helps users follow how the final answer was reached.
 
-(5–7 sentences)
+One limitation I observed is that chain-of-thought responses can be significantly longer than necessary for simple tasks. The additional explanations may increase response time and add information that is not always needed when the user only wants a quick answer.
 
 ---
 
 ## 3.2 Few-Shot Prompting
 
+### Zero shot prompt
+
+Classify the sentiment of the following customer reviews as Positive, Negative, or Neutral:
+
+1. "The product arrived damaged and customer service was unhelpful."
+2. "Works as expected, nothing special but does the job."
+3. "Absolutely love this! Best purchase I've made all year!"
+4. "The quality is okay but slightly overpriced for what you get."
+5. "Terrible experience, would not recommend to anyone."
+
+### Output  
+
+1. **Negative** — "The product arrived damaged and customer service was unhelpful."
+
+2. **Neutral** — "Works as expected, nothing special but does the job."
+
+3. **Positive** — "Absolutely love this! Best purchase I've made all year!"
+
+4. **Neutral** — "The quality is okay but slightly overpriced for what you get."
+
+5. **Negative** — "Terrible experience, would not recommend to anyone."
+
+
 ### Few-Shot Prompt
 
-Example 1:  
-Customer: My order is late.  
-Response: I apologize for the delay. Let me check the status for you.
+Classify the sentiment of customer reviews as Positive, Negative, or Neutral, based on the following examples: 
 
-Example 2:  
-Customer: I received a damaged product.  
-Response: I'm sorry to hear that. We can arrange a replacement immediately.
+Review: "This product exceeded my expectations!"
+Sentiment: Positive
 
-Customer:  
-I was charged twice for my purchase.
+Review: "Completely broke after one week of use."
+Sentiment: Negative
 
-Response:
+Review: "It's fine, does what it says on the box."
+Sentiment: Neutral
+
+Review: "The delivery was fast, but the item was not what I expected."
+Sentiment: Neutral
+
+Now, classify the sentiment of these reviews:
+
+1. "The product arrived damaged and customer service was unhelpful."
+2. "Works as expected, nothing special but does the job."
+3. "Absolutely love this! Best purchase I've made all year!"
+4. "The quality is okay but slightly overpriced for what you get."
+5. "Terrible experience, would not recommend to anyone.
 
 ### LLM Output
 
-[Output]
+1. **Negative** — "The product arrived damaged and customer service was unhelpful."
+
+2. **Neutral** — "Works as expected, nothing special but does the job."
+
+3. **Positive** — "Absolutely love this! Best purchase I've made all year!"
+
+4. **Neutral** — "The quality is okay but slightly overpriced for what you get."
+
+5. **Negative** — "Terrible experience, would not recommend to anyone."
 
 ### Analysis
 
-Explain:
+| Review # | Zero-Shot Result | Few-Shot Result | Correct Label | Improved? |
+| -------- | ---------------- | --------------- | ------------- | --------- |
+| 1        | Negative         | Negative        | Negative      | No        |
+| 2        | Neutral          | Neutral         | Neutral       | No        |
+| 3        | Positive         | Positive        | Positive      | No        |
+| 4        | Neutral          | Neutral         | Neutral       | No        |
+| 5        | Negative         | Negative        | Negative      | No        |
 
-- How examples influenced behavior
-- Benefits of few-shot prompting
-- Real-world use cases
+Few-shot prompting is most useful when tasks require a specific format, style, or decision-making pattern that may not be obvious from the instruction alone. By providing examples, the model can better understand the expected output and produce more consistent results. It is particularly valuable for classification, information extraction, and specialized domain tasks where subtle distinctions are important.
 
-(5–7 sentences)
 
 ---
 
